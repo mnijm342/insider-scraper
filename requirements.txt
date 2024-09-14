@@ -1,0 +1,5 @@
+lightweight-charts
+yfinance
+pandas_ta
+ib_insync
+nest_asyncio
