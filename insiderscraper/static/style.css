@@ -1,0 +1,158 @@
+/* General resets */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Open Sans", sans-serif;
+  }
+  
+  body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #1b1b1b;
+    padding: 20px;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    min-height: 8vh;
+    background-color: rgb(24, 24, 24);
+    color: white;
+    gap: 600px;
+  }
+
+  .nav-logo a{
+    color: rgb(235, 235, 235);
+    letter-spacing: 1px;
+    font-weight: 600;
+  }
+  .nav-logo a:hover {
+    text-decoration: none;
+  }
+  
+  .nav-menu {
+    width: 25%;
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    letter-spacing: 1px;
+    font-weight: 600;
+    gap: 40px;
+  }
+  
+  .nav-menu li {
+    padding: 10px 0;
+  }
+  
+  .nav-menu a {
+    color: rgb(235, 235, 235);
+    transition: color 0.3s ease;
+  }
+  .nav-menu a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+  }
+  .content-box {
+    padding-top: 0px;
+    padding-left: 400px;
+    padding-right: 400px;
+    padding-bottom: 0px;
+    color: #ddd;
+  }
+
+  .content-box2 {
+    padding-top: 0px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 0px;
+    color: #ddd;
+  }
+
+  body, html {
+    height: 100%;
+  
+  .display-title {
+    margin-top: 1rem;
+    text-align: center;
+  }
+
+  .chart-and-table-container {
+    display: flex;
+    font-size: small;
+    margin-bottom: 40px;
+  }
+
+  .chart {
+    display: flex;
+    width: 1000px;
+    height: 700px;
+    justify-content: space-between;
+    margin-left: 40px;
+  }
+  .table-container { 
+    display: flex;
+    width: 800px;
+    height: 100%;
+    justify-content: space-between; 
+    font-size: small;
+    margin-bottom: 40px;
+} 
+  .table-container2 {
+    display: flex;
+    width: 500px;
+    height: 100%;
+    justify-content: space-between; 
+    font-size: small;
+    margin-left: 40px;
+    margin-bottom: 40px;
+  }
+
+.table { 
+    border-collapse: collapse; 
+    width: 100%; 
+} 
+
+th, 
+td { 
+    border: 1px solid #494949; 
+    padding: 2px; 
+    text-align: left;
+}
+
+.tickers a{
+  color: rgb(101, 150, 255);
+  transition: color 0.3s ease;
+  font-weight: bold;
+}
+.tickers a:hover {
+  color: #87adff;
+  text-decoration: underline;
+}
+
+th { 
+    background-color: #1a1a1a; 
+}
+
+  .hide {
+    display: none;
+  }
+
+  main {
+    margin-top: 20px;
+  }
+  
+ 
+  @media (max-width: 768px) {
+    .nav-menu {
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+  }

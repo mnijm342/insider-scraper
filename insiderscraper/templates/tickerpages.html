@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/style.css">
+    <script src="script.js" defer></script>
+    <title>{{ticker}} - InsiderTracker</title>
+    <link rel="stylesheet">
+</head>
+<body>
+    <header>
+        
+        <div class="nav-logo">
+            <h1><a href="/main.html">InsiderTracker</a></h1>
+        </div>
+        <ul class="nav-menu">
+            <li><a href="/about.html">About</a></li>
+        </ul>
+    </header>
+    <div class="content-box2">
+    <div class="display-title">
+          <h2>Ticker: {{ticker}}</h2>
+          <h4>Today: {{currentDate}}</h4>
+    </div>
+    <h3>OpenInsider</h3>
+    <h4>Filing Date: {{filingDate}}</h4>
+    <div class="chart-and-table-container"> 
+        <div class="table-container"> 
+            <table class="table"> 
+                <tr> 
+                    <th>Days Since</th>
+                </tr> 
+                {% for days in range(1, daysSince + 1) %}
+                <tr>
+                    <td class="table-numbers">{{days}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+            <table class="table"> 
+                <tr> 
+                    <th>% Change</th> 
+                </tr>
+                {% for changes in priceChanges %}
+                <tr>
+                    {% if changes >= 0 %}
+                    <td style="color:rgb(0, 255, 0); font-weight: bold;">{{changes}}</td>
+                    {% else %}
+                    <td style="color:rgb(255, 95, 95); font-weight: bold;">{{changes}}</td>
+                    {% endif %}   
+                </tr>
+                {% endfor %}
+            </table>
+            <table class="table"> 
+                <tr> 
+                    <th>Close</th> 
+                </tr>
+                {% for prices in closePrices %}
+                <tr> 
+                    <td class="table-numbers">{{prices}}</td>   
+                </tr>
+                {% endfor %}
+            </table>
+            <table class="table"> 
+                <tr> 
+                    <th>Low</th> 
+                </tr>
+                {% for lows in priceLows %}
+                <tr> 
+                    <td class="table-numbers">{{lows}}</td>   
+                </tr>
+                {% endfor %}
+            </table>
+            <table class="table"> 
+                <tr> 
+                    <th>High</th> 
+                </tr>
+                {% for highs in priceHighs %}
+                <tr> 
+                    <td class="table-numbers">{{highs}}</td>   
+                </tr>
+                {% endfor %}
+            </table>
+            </div>
+            <div class="table-container2">
+            <table class="table"> 
+                <tr> 
+                    <th>Trade Type</th> 
+                </tr>
+                {% for types in tradeTypes %}
+                <tr>
+                    {% if types == purchaseString %} 
+                    <td style="color:rgb(0, 180, 0)">{{types}}</td>
+                    {% elif types == saleString or saleOEString %}
+                    <td style="color:rgb(255, 95, 95)">{{types}}</td>
+                    {% else %}
+                    <td>{{types}}</td>
+                    {% endif %}   
+                </tr>
+                {% endfor %}
+            </table>
+            <table class="table"> 
+                <tr> 
+                    <th>Trade Date</th> 
+                </tr>
+                {% for dates in tickerDates %}
+                <tr> 
+                    <td class="table-numbers">{{dates}}</td>   
+                </tr>
+                {% endfor %}
+            </table>
+            
+        </div>
+        <div class="chart">
+       <!-- TradingView Widget BEGIN -->
+<div class="tradingview-widget-container" style="height:100%;width:100%">
+    <div class="tradingview-widget-container__widget" style="height:calc(100% - 32px);width:100%"></div>
+    <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text"></span></a></div>
+    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+    {
+    "autosize": true,
+    "symbol": "{{tickerExchange}}:{{ticker}}",
+    "interval": "D",
+    "timezone": "America/New_York",
+    "theme": "dark",
+    "style": "1",
+    "locale": "en",
+    "allow_symbol_change": false,
+    "save_image": false,
+    "calendar": false,
+    "support_host": "https://www.tradingview.com"
+  }
+    </script>
+  </div>
+  <!-- TradingView Widget END -->
+        </div>
+        </div>
+    </div>
+</body>
+</html>
